@@ -26,6 +26,21 @@ export type Project = {
   private?: boolean;
 };
 
+export type View = {
+  href: string;
+  label: string;
+  /** SVG path data for a 24×24 stroke icon. */
+  icon: string;
+};
+
+export const views: View[] = [
+  { href: "/", label: "Overview", icon: "M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" },
+  { href: "/work", label: "Work", icon: "M5 7h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zM8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" },
+  { href: "/stack", label: "Stack", icon: "m12 3 9 5-9 5-9-5 9-5zm-9 10 9 5 9-5" },
+  { href: "/projects", label: "Projects", icon: "M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" },
+  { href: "/contact", label: "Contact", icon: "M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm-2 2 9 6 9-6" },
+];
+
 export const profile = {
   name: "Emmanuel Morales Jr.",
   shortName: "Emmanuel",

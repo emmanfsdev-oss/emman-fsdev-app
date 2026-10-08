@@ -1,7 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Sora } from "next/font/google";
+import { MobileNav } from "./_components/Nav";
+import { Sidebar, SiteFooter, SiteHeader } from "./_components/Shell";
 import { profile } from "./_data/profile";
 import "./globals.css";
+
+export const ensureStatic = "navigation";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -18,8 +22,10 @@ const description = `${profile.title} with ${profile.years} years building web a
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
-  alternates: { canonical: "/" },
-  title: `${profile.name} — ${profile.title}`,
+  title: {
+    default: `${profile.name} — ${profile.title}`,
+    template: `%s · ${profile.name}`,
+  },
   description,
   authors: [{ name: profile.name }],
   openGraph: {
@@ -38,18 +44,27 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#e9edf2" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0e15" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#131a26" },
   ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${sora.variable} ${dmSans.variable} h-full antialiased`}
-    >
-      <body className="min-h-full bg-bg font-sans text-ink">{children}</body>
+    <html lang="en" className={`${sora.variable} ${dmSans.variable} antialiased`}>
+      <body className="bg-bg font-sans text-ink">
+        <div className="flex h-dvh flex-col overflow-hidden">
+          <SiteHeader />
+          <div className="flex min-h-0 flex-1">
+            <Sidebar />
+            <div className="flex min-w-0 flex-1 flex-col">
+              <MobileNav />
+              <main className="min-h-0 flex-1 scroll-pt-4 overflow-y-auto p-4 sm:scroll-pt-7 sm:p-7">{children}</main>
+            </div>
+          </div>
+          <SiteFooter />
+        </div>
+      </body>
     </html>
   );
 }

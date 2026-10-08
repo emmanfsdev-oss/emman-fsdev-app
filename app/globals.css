@@ -21,6 +21,10 @@
   --tile-muted: #a9b4c6;
   --on-brand: #ffffff;
   --on-brand-muted: #dce4ff;
+  --side: #0e1726;
+  --side-ink: #ffffff;
+  --side-muted: #c9d2e0;
+  --side-hover: rgb(255 255 255 / 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,6 +49,10 @@
     --tile-muted: #4a5567;
     --on-brand: #ffffff;
     --on-brand-muted: #e3e9ff;
+    --side: #0f1520;
+    --side-ink: #e8edf5;
+    --side-muted: #a7b2c3;
+    --side-hover: rgb(255 255 255 / 0.06);
   }
 }
 
@@ -69,15 +77,15 @@
   --color-tile-muted: var(--tile-muted);
   --color-on-brand: var(--on-brand);
   --color-on-brand-muted: var(--on-brand-muted);
+  --color-side: var(--side);
+  --color-side-ink: var(--side-ink);
+  --color-side-muted: var(--side-muted);
+  --color-side-hover: var(--side-hover);
   --font-sans: var(--font-dm-sans);
   --font-display: var(--font-sora);
   --radius-tile: 28px;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 24px;
-}
 
 body {
   background: var(--bg);
