@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --bg: #e9edf2;
+  --card: #ffffff;
+  --ink: #0e1726;
+  --muted: #4a5567;
+  --subtle: #5b6678;
+  --line: #e3e8ef;
+  --brand: #2f5bea;
+  --brand-ink: #2448c9;
+  --brand-soft: #eef2ff;
+  --chip: #f1f3f6;
+  --chip-ink: #2e3a4c;
+  --warm: #f58a3d;
+  --warm-ink: #1b0e04;
+  --warm-soft: #fff1e6;
+  --warm-soft-ink: #8a3c08;
+  --tile: #0e1726;
+  --tile-ink: #ffffff;
+  --tile-muted: #a9b4c6;
+  --on-brand: #ffffff;
+  --on-brand-muted: #dce4ff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #0a0e15;
+    --card: #131a26;
+    --ink: #e8edf5;
+    --muted: #a7b2c3;
+    --subtle: #94a0b4;
+    --line: #232d3c;
+    --brand: #4f74ff;
+    --brand-ink: #9db3ff;
+    --brand-soft: rgb(79 116 255 / 0.16);
+    --chip: #1b2433;
+    --chip-ink: #cbd5e1;
+    --warm: #f58a3d;
+    --warm-ink: #1b0e04;
+    --warm-soft: rgb(245 138 61 / 0.14);
+    --warm-soft-ink: #fdba8c;
+    --tile: #e8edf5;
+    --tile-ink: #0e1726;
+    --tile-muted: #4a5567;
+    --on-brand: #ffffff;
+    --on-brand-muted: #e3e9ff;
   }
 }
 
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-chip: var(--chip);
+  --color-chip-ink: var(--chip-ink);
+  --color-warm: var(--warm);
+  --color-warm-ink: var(--warm-ink);
+  --color-warm-soft: var(--warm-soft);
+  --color-warm-soft-ink: var(--warm-soft-ink);
+  --color-tile: var(--tile);
+  --color-tile-ink: var(--tile-ink);
+  --color-tile-muted: var(--tile-muted);
+  --color-on-brand: var(--on-brand);
+  --color-on-brand-muted: var(--on-brand-muted);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-sora);
+  --radius-tile: 28px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }
