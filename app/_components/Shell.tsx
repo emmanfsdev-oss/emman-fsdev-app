@@ -73,6 +73,9 @@ export function SiteFooter() {
         <a href={`mailto:${profile.email}`} className="hover:text-ink">
           Email
         </a>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer" className="hover:text-ink">
+          LinkedIn<span className="sr-only"> (opens in a new tab)</span>
+        </a>
         <a href={profile.resumeHref} download className="hover:text-ink">
           Résumé (PDF)
         </a>

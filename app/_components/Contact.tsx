@@ -1,4 +1,5 @@
 import { profile } from "../_data/profile";
+import { LinkedInIcon } from "./LinkedInIcon";
 
 export function Contact() {
   return (
@@ -16,6 +17,16 @@ export function Contact() {
             className="inline-flex min-h-13 items-center rounded-full bg-white px-6 font-bold text-[#0e1726] transition-transform hover:-translate-y-0.5"
           >
             {profile.email}
+          </a>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-13 items-center gap-2 rounded-full border border-white/50 px-6 font-semibold transition-colors hover:bg-white/10"
+          >
+            <LinkedInIcon />
+            LinkedIn
+            <span className="sr-only">(opens in a new tab)</span>
           </a>
           <a
             href={profile.resumeHref}
@@ -42,6 +53,22 @@ export function Contact() {
           <span className="font-display text-[26px] font-bold">Email</span>
           <span className="text-[15px] break-all opacity-85">{profile.email}</span>
         </div>
+        <a
+          href={profile.linkedin}
+          target="_blank"
+          rel="noreferrer"
+          className="flex flex-1 flex-col gap-2 rounded-tile bg-brand-soft p-7 transition-transform hover:-translate-y-0.5"
+        >
+          <span className="text-[13px] font-bold tracking-[0.1em] text-brand-ink">CONNECT</span>
+          <span className="flex items-center gap-2.5 font-display text-[26px] font-bold">
+            <LinkedInIcon className="size-6" />
+            LinkedIn
+          </span>
+          <span className="text-[15px] text-muted">
+            {profile.name} <span aria-hidden>↗</span>
+            <span className="sr-only">(opens in a new tab)</span>
+          </span>
+        </a>
       </div>
     </div>
   );

@@ -136,6 +136,7 @@ export function ContactSkeleton() {
         <Bone className="h-5 w-full max-w-lg bg-white/25" />
         <div className="flex flex-wrap gap-2.5">
           <Bone className="h-13 w-64 rounded-full bg-white/25" />
+          <Bone className="h-13 w-36 rounded-full bg-white/25" />
           <Bone className="h-13 w-48 rounded-full bg-white/25" />
         </div>
       </div>
@@ -149,6 +150,11 @@ export function ContactSkeleton() {
           <Bone className="h-3.5 w-28 bg-tile-ink/15" />
           <Bone className="h-7 w-24 bg-tile-ink/15" />
           <Bone className="h-4 w-52 bg-tile-ink/15" />
+        </div>
+        <div className="flex flex-1 flex-col gap-3 rounded-tile bg-brand-soft p-7">
+          <Bone className="h-3.5 w-20 bg-brand/20" />
+          <Bone className="h-7 w-32 bg-brand/20" />
+          <Bone className="h-4 w-48 bg-brand/20" />
         </div>
       </div>
     </ViewSkeleton>
