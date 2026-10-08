@@ -103,9 +103,9 @@ export function ProjectsSkeleton() {
   return (
     <ViewSkeleton
       label="projects"
-      className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))]"
+      className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))]"
     >
-      {[0, 1, 2].map((i) => (
+      {[0, 1, 2, 3].map((i) => (
         <div key={i} className="flex min-h-[340px] flex-col gap-3.5 rounded-tile bg-card p-8">
           <div className="flex justify-between">
             <Bone className="h-4 w-6" />

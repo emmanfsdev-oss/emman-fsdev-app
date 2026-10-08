@@ -3,7 +3,7 @@ import { ExternalLink } from "./ExternalLink";
 
 export function Projects() {
   return (
-    <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))]">
+    <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))]">
       <h1 className="sr-only">Selected work</h1>
       {projects.map((project, index) => (
         <article

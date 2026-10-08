@@ -176,4 +176,11 @@ export const projects: Project[] = [
     href: "https://www.qtech.ph/",
     private: true,
   },
+  {
+    name: "WordPress client sites",
+    context: "WEMOAP IT Solutions · 2016 — 2018",
+    description:
+      "Responsive WordPress sites and web apps for Hong Kong–based client teams, from custom logos and UI assets in Photoshop and Illustrator through to deployment, domains and hosting.",
+    stack: ["WordPress", "Photoshop", "Illustrator", "HostGator"],
+  },
 ];
