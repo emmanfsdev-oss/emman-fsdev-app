@@ -31,6 +31,7 @@ export const profile = {
   shortName: "Emmanuel",
   title: "Senior Full Stack Software Engineer",
   email: "emman.fsdev@gmail.com",
+  siteUrl: "https://emman-fsdev.vercel.app",
   location: "Tarlac, Philippines",
   timezone: "UTC+8",
   since: 2016,

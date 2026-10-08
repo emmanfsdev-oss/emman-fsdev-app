@@ -16,12 +16,9 @@ const dmSans = DM_Sans({
 
 const description = `${profile.title} with ${profile.years} years building web and mobile products. Currently on Officeworks' e-commerce platform with TypeScript, React, Node.js and AWS.`;
 
-const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "http://localhost:3000";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(profile.siteUrl),
+  alternates: { canonical: "/" },
   title: `${profile.name} — ${profile.title}`,
   description,
   authors: [{ name: profile.name }],
