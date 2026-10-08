@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { ViewLink } from "./Navigation";
 import { experience, profile } from "../_data/profile";
 
 export function Overview() {
@@ -28,18 +28,18 @@ export function Overview() {
         </h1>
         <p className="max-w-2xl text-lg leading-relaxed text-muted">{profile.intro}</p>
         <div className="flex flex-wrap gap-2.5">
-          <Link
+          <ViewLink
             href="/work"
             className="inline-flex min-h-12 items-center rounded-full bg-tile px-6 font-semibold text-tile-ink transition-opacity hover:opacity-85"
           >
             See my work →
-          </Link>
-          <Link
+          </ViewLink>
+          <ViewLink
             href="/contact"
             className="inline-flex min-h-12 items-center rounded-full bg-chip px-6 font-semibold text-ink transition-colors hover:bg-line"
           >
             Get in touch
-          </Link>
+          </ViewLink>
         </div>
       </section>
 
@@ -54,7 +54,7 @@ export function Overview() {
           </span>
         </div>
         {current && (
-          <Link
+          <ViewLink
             href="/work"
             className="flex flex-1 flex-col gap-2.5 rounded-tile bg-warm p-7 text-warm-ink transition-transform hover:-translate-y-0.5"
           >
@@ -63,7 +63,7 @@ export function Overview() {
             <span className="text-[15px] leading-normal">
               {current.summary} {current.location}
             </span>
-          </Link>
+          </ViewLink>
         )}
       </div>
     </div>

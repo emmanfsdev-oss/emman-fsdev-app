@@ -97,14 +97,33 @@ body {
   outline-offset: 3px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+/*
+ * Navigation skeleton overlay: invisible for the first 100ms, then fades in.
+ * Views that are already prefetched replace it before it ever shows.
+ */
+@keyframes view-skeleton-in {
+  from {
+    opacity: 0;
   }
-  *,
+  to {
+    opacity: 1;
+  }
+}
+
+.view-skeleton {
+  animation: view-skeleton-in 150ms ease-out 100ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *:not(.view-skeleton),
   *::before,
   *::after {
     transition: none !important;
     animation: none !important;
+  }
+
+  /* Keep the delay (so fast views still don't flash) but skip the fade. */
+  .view-skeleton {
+    animation-duration: 1ms;
   }
 }

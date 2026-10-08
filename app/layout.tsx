@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Sora } from "next/font/google";
 import { MobileNav } from "./_components/Nav";
+import { NavigationProvider } from "./_components/Navigation";
 import { Sidebar, SiteFooter, SiteHeader } from "./_components/Shell";
+import { ViewArea } from "./_components/ViewArea";
 import { profile } from "./_data/profile";
 import "./globals.css";
 
@@ -53,17 +55,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${sora.variable} ${dmSans.variable} antialiased`}>
       <body className="bg-bg font-sans text-ink">
-        <div className="flex h-dvh flex-col overflow-hidden">
-          <SiteHeader />
-          <div className="flex min-h-0 flex-1">
-            <Sidebar />
-            <div className="flex min-w-0 flex-1 flex-col">
-              <MobileNav />
-              <main className="min-h-0 flex-1 scroll-pt-4 overflow-y-auto p-4 sm:scroll-pt-7 sm:p-7">{children}</main>
+        <NavigationProvider>
+          <div className="flex h-dvh flex-col overflow-hidden">
+            <SiteHeader />
+            <div className="flex min-h-0 flex-1">
+              <Sidebar />
+              <div className="flex min-w-0 flex-1 flex-col">
+                <MobileNav />
+                <ViewArea>{children}</ViewArea>
+              </div>
             </div>
+            <SiteFooter />
           </div>
-          <SiteFooter />
-        </div>
+        </NavigationProvider>
       </body>
     </html>
   );

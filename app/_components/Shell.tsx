@@ -1,14 +1,14 @@
 import Image from "next/image";
-import Link from "next/link";
+import { ViewLink } from "./Navigation";
 import { experience, profile } from "../_data/profile";
 import { CurrentViewTitle, SidebarNav } from "./Nav";
 
 export function SiteHeader() {
   return (
     <header className="flex shrink-0 items-center justify-between gap-3 border-b border-line bg-card px-4 py-3 sm:px-7">
-      <Link href="/" className="font-display text-lg font-bold tracking-tight">
+      <ViewLink href="/" className="font-display text-lg font-bold tracking-tight">
         emman<span className="text-brand">.fsdev</span>
-      </Link>
+      </ViewLink>
       <CurrentViewTitle />
       <div className="flex gap-2">
         <a

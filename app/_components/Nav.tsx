@@ -1,12 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { views, type View } from "../_data/profile";
+import { useNavigation, ViewLink } from "./Navigation";
 
-function isActive(view: View, pathname: string) {
-  return view.href === "/" ? pathname === "/" : pathname.startsWith(view.href);
+function isActive(view: View, path: string) {
+  return view.href === "/" ? path === "/" : path.startsWith(view.href);
 }
 
 function Icon({ path }: { path: string }) {
@@ -28,13 +27,13 @@ function Icon({ path }: { path: string }) {
 
 /** Vertical nav for the desktop sidebar. */
 export function SidebarNav() {
-  const pathname = usePathname();
+  const { activePath } = useNavigation();
   return (
     <nav aria-label="Views" className="flex flex-col gap-1">
       {views.map((view) => {
-        const active = isActive(view, pathname);
+        const active = isActive(view, activePath);
         return (
-          <Link
+          <ViewLink
             key={view.href}
             href={view.href}
             aria-current={active ? "page" : undefined}
@@ -46,7 +45,7 @@ export function SidebarNav() {
           >
             <Icon path={view.icon} />
             {view.label}
-          </Link>
+          </ViewLink>
         );
       })}
     </nav>
@@ -55,15 +54,15 @@ export function SidebarNav() {
 
 /** Horizontal, scrollable pill nav shown under the header on small screens. */
 export function MobileNav() {
-  const pathname = usePathname();
+  const { activePath } = useNavigation();
   const navRef = useRef<HTMLElement>(null);
 
-  // Keep the active pill visible when the route changes (e.g. landing on /contact).
+  // Keep the active pill visible when the view changes (e.g. landing on /contact).
   useEffect(() => {
     navRef.current
       ?.querySelector('[aria-current="page"]')
       ?.scrollIntoView({ block: "nearest", inline: "nearest" });
-  }, [pathname]);
+  }, [activePath]);
 
   return (
     <nav
@@ -72,9 +71,9 @@ export function MobileNav() {
       className="flex shrink-0 gap-1.5 overflow-x-auto border-b border-line bg-card px-4 py-2.5 [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
     >
       {views.map((view) => {
-        const active = isActive(view, pathname);
+        const active = isActive(view, activePath);
         return (
-          <Link
+          <ViewLink
             key={view.href}
             href={view.href}
             aria-current={active ? "page" : undefined}
@@ -84,7 +83,7 @@ export function MobileNav() {
           >
             <Icon path={view.icon} />
             {view.label}
-          </Link>
+          </ViewLink>
         );
       })}
     </nav>
@@ -93,8 +92,8 @@ export function MobileNav() {
 
 /** Name of the current view, shown in the header. */
 export function CurrentViewTitle() {
-  const pathname = usePathname();
-  const view = views.find((v) => isActive(v, pathname));
+  const { activePath } = useNavigation();
+  const view = views.find((v) => isActive(v, activePath));
   return (
     <span className="hidden text-sm text-subtle md:inline">
       {view?.label ?? "Not found"}
