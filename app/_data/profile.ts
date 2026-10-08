@@ -9,6 +9,8 @@ export type Role = {
   highlights: string[];
   stack: string[];
   current?: boolean;
+  /** Company website. */
+  href?: string;
 };
 
 export type SkillGroup = {
@@ -94,6 +96,7 @@ export const experience: Role[] = [
   {
     title: "Full Stack Software Engineer",
     company: "Quantum Technology Inc.",
+    href: "https://www.qtech.ph/",
     start: "Jan 2022",
     end: "Sep 2023",
     summary: "React, React Native + Expo, microservices.",
@@ -170,6 +173,7 @@ export const projects: Project[] = [
     description:
       "React Native and Expo apps built from Figma designs, backed by REST APIs and microservices.",
     stack: ["React Native", "Expo", "Node.js"],
+    href: "https://www.qtech.ph/",
     private: true,
   },
 ];

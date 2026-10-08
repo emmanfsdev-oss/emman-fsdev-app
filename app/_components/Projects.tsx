@@ -1,4 +1,5 @@
 import { projects } from "../_data/profile";
+import { ExternalLink } from "./ExternalLink";
 
 export function Projects() {
   return (
@@ -32,16 +33,7 @@ export function Projects() {
               </li>
             ))}
           </ul>
-          {project.href && (
-            <a
-              href={project.href}
-              target="_blank"
-              rel="noreferrer"
-              className="text-sm font-semibold text-brand-ink hover:underline"
-            >
-              Visit live site ↗
-            </a>
-          )}
+          {project.href && <ExternalLink href={project.href} />}
         </article>
       ))}
     </div>
